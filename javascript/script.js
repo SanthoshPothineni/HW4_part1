@@ -7,52 +7,16 @@ $(document).ready(function(){
           $('#submit').prop('disabled', true); // disables submit button
     }
 });
-//Validation rules for form
-  $( "#multForm" ).validate({
-    rules:{
-        Hstart:{
-          required: true,
-          isInt: true,
-          inRange: true
-        },
-      Hend:{
-          required: true,
-          isInt: true,
-          inRange: true
-      },
-      Vstart:{
-          required: true,
-          isInt: true,
-          inRange: true
-      },
-      Vend:{
-          required: true,
-          isInt: true,
-          inRange: true
-      }
-  },
-  messages: {
-        Hstart:{
-            required:"Both bounds are required for rows.",
-            number: "Please enter a valid integer."
-        },
-      Hend:{
-          required: "Both bounds are required for rows.",
-          number: "Please enter a valid integer."
-      },
-      Vstart:{
-          required: "Both bounds are required for columns.",
-          number: "Please enter a valid integer."
-      },
-      Vend:{
-          required: "Both bounds are required for columns.",
-          number: "Please enter a valid integer."
-      }
-  }
+  //Validation rules for form
+  jQuery.validator.addClassRules('numbox', {
+    required: true,
+    isInt: true,
+    inRange: true
   });
 
-  $('#submit').click(processing);
-
+    $("#multForm").validate();
+    $('#submit').click(processing);
+    addSliders();
 });
 
 //Extra validator method to confirm number is an int
