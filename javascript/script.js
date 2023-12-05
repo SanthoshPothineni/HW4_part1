@@ -22,7 +22,7 @@ $(document).ready(function(){
 //Extra validator method to confirm number is an int
 jQuery.validator.addMethod("isInt", function(value, element) {
   return this.optional(element) || (Number.isInteger(parseFloat(value)));
-}, "Floats are not supported, please enter integers only.");
+}, "Entered a non integer value, please enter integers only.");
 
 //Extra validator method to confirm number is in range
 jQuery.validator.addMethod("inRange", function(value, element) {
